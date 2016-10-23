@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>address</title>
+    <script>
+        var area = new Array();
+        area[1] = ["大安區","大同區","中山區","松山區"];  //第一維陣列
+        area[2] = ["中和區","永和區","淡水區"];  //第二維陣列
+        //console.log(area[0][1]);  //第一維陣列的第二筆
+        
+        function update(index){
+            for(var i=0;i<area[index].length;i++){
+                myForm.city.options[i] = new Option(area[index][i]);
+            }
+            myForm.city.length = area[index].length; //city的長度要等於陣列的長度,4個就4個,3個就3個
+        }
+        //new Option(Value,Text);
+    </script>
+</head>
+<body>
+   <form action="javascript:;" id="myForm">
+       <select name="country" id="country" onchange="update(this.selectedIndex)">
+           <option value="">請選擇</option>
+           <option value="台北市">台北市</option>
+           <option value="新北市">新北市</option>
+       </select>
+       <select name="city" id="city">
+           <option value=""></option>
+       </select>
+       <input type="submit">
+   </form>
+    
+</body>
+</html>
