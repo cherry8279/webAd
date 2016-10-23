@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        div.area {
+            margin: 20px 0;
+        }
+        
+        form {
+            width: 400px;
+            margin: auto;
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 20px;
+        }
+        
+        select {
+            padding: 20px;
+        }
+        
+        input[type="submit"] {
+            border: 0;
+            width: 100%;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" name="myForm" id="myForm">
+        <div class="area">
+            <input type="text" placeholder="訂購人姓名" id="name">
+        </div>
+        <div class="area">
+            <!--<input type="text" placeholder="訂購數量" id="ip7num" onchange="updatePrice()">-->
+            <select name="ip7num" id="ip7num" onchange="updatePrice()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        </div>
+        <div class="area">
+            <select name="size" id="size" onchange="updatePrice()">
+                <option value="32G">32G</option>
+                <option value="128G">128G</option>
+                <option value="256G">256G</option>
+            </select>
+        </div>
+        <div class="area">
+            <input type="text" placeholder="總計" id="total">
+        </div>
+        <div class="area">
+            <input type="submit" value="預購">
+        </div>
+    </form>
+    <script>
+        function updatePrice() {
+            var ip7_32 = 24900;
+            var ip7_128 = 28900;
+            var ip7_256 = 32900;
+            var name = myForm.name.value;
+            var ip7num = myForm.ip7num.value;
+            var size = myForm.size.value;
+            /*if(size=="32G"){
+                var total = ip7_32*ip7num;
+            }else if(size=="128G"){
+                var total = ip7_128*ip7num;
+            }else if(size=="256G"){
+                var total = ip7_256*ip7num;
+            }*/
+            switch (size) {
+            case "32G":
+                var total = ip7_32 * ip7num;
+                break;
+            case "128G":
+                var total = ip7_128 * ip7num;
+                break;
+            case "256G":
+                var total = ip7_256 * ip7num;
+                break;
+            }
+            myForm.total.value = total;
+        }
+    </script>
+</body>
+
+</html>

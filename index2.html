@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="javascript:;" id="myForm" onsubmit="go()">
+        <input type="text" id="name">
+        <select name="" id="sex">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        訂閱<input type="radio" name="subscribe" id="subscribe" value="訂閱">
+        不訂閱<input type="radio" name="subscribe" id="subscribe" value="不訂閱">
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        <input type="text" id="mail">
+        <input type="submit">
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+        myForm.onsubmit = function () {
+            var name = myForm.name.value;
+            var mail = myForm.mail.value;
+            var sex = myForm.sex.value;
+            var sub = myForm.subscribe.value;
+            var cont = myForm.content.value;
+            document.getElementById("output").innerHTML ="<p>"+name+"</p>"+"<p>"+sex+"</p>"+"<p>"+sub+"</p>"+"<p>"+cont+"</p>"+"<p>"+mail+"</p>";
+        }
+    </script>
+</body>
+
+</html>
